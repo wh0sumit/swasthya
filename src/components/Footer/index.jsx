@@ -49,12 +49,14 @@ export default function Footer() {
     <Box
       bg={useColorModeValue('gray.50', 'gray.900')}
       color={useColorModeValue('gray.700', 'gray.200')}
-      rounded={'xl'}
+      rounded={'3xl'}
       border={'2px solid'}
       borderColor={useColorModeValue('green.400', 'gray.100')}
+      borderBottom={'0px'}
+      borderBottomRadius={'0px'}
     >
-      <Container as={Stack} maxW={'6xl'} py={10}>
-        <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
+      <Container as={Stack} maxW={'6xl'} p={10}>
+        <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={10}>
           <Stack align={'flex-start'}>
             <ListHeader>Company</ListHeader>
             <Link href={'#'}>About Us</Link>
@@ -74,11 +76,20 @@ export default function Footer() {
           </Stack>
 
           <Stack align={'flex-start'}>
-            <Heading marginTop="2">Swasthya</Heading>
+            <Heading
+              marginTop="2"
+              fontFamily={'heading'}
+              bgClip="text"
+              bgGradient="linear(to-r, green.500, green.300, green.500)"
+              fontWeight="bold"
+            >
+              Swasthya
+            </Heading>
             <Text
               as="p"
               color={useColorModeValue('gray.500', 'gray.400')}
               fontSize="md"
+              mt={0}
             >
               Be Healthy, Be Happy !
             </Text>

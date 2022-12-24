@@ -23,13 +23,14 @@ import {
 } from '@chakra-ui/icons';
 import { ColorModeSwitcher } from '../../ColorModeSwitcher';
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
     <React.Fragment>
-      <Box>
+      <Box my={6}>
         <Flex
           bg={useColorModeValue('gray.50', 'gray.900')}
           color={useColorModeValue('gray.700', 'gray.200')}
@@ -65,16 +66,17 @@ export default function Navbar() {
             />
           </Flex>
           <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-            <Text
-              textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-              fontFamily={'heading'}
-              bgClip="text"
-              bgGradient="linear(to-r, green.500, green.300, green.500)"
-              fontWeight="bold"
-            >
-              Swasthya
-            </Text>
-
+            <NavLink to="/">
+              <Text
+                textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
+                fontFamily={'heading'}
+                bgClip="text"
+                bgGradient="linear(to-r, green.500, green.300, green.500)"
+                fontWeight="bold"
+              >
+                Swasthya
+              </Text>
+            </NavLink>
             <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
               <DesktopNav />
             </Flex>
@@ -87,19 +89,19 @@ export default function Navbar() {
             spacing={6}
           >
             <ColorModeSwitcher justifySelf="flex-end" />
-            <Button
-              display={{ base: 'none', md: 'inline-flex' }}
-              fontSize={'sm'}
-              fontWeight={600}
-              color={'white'}
-              bg={'green.400'}
-              href={'#'}
-              _hover={{
-                bg: 'green.300',
-              }}
-            >
-              Get Started 🤍
-            </Button>
+            <NavLink to="/login">
+              <Button
+                bg={useColorModeValue('green.600', 'green.200')}
+                color={useColorModeValue('white', 'gray.800')}
+                _hover={{
+                  bg: useColorModeValue('green.700', 'green.300'),
+                }}
+                size="md"
+                variant={'solid'}
+              >
+                Get Started 🤍
+              </Button>
+            </NavLink>
           </Stack>
         </Flex>
 

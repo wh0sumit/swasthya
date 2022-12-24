@@ -16,7 +16,6 @@ import {
 } from '@chakra-ui/react';
 
 import Testimonials from '../components/Testimonials';
-import Footer from '../components/Footer';
 
 const Tags = props => {
   const tagsBg = useColorModeValue('green.400', 'green.800');
@@ -315,8 +314,6 @@ export default function Home() {
         <Divider marginTop="5" />
         <Testimonials />
       </Box>
-
-      <Footer />
     </Container>
   );
 }
