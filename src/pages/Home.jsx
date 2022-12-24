@@ -11,14 +11,19 @@ import {
   useColorModeValue,
   Container,
   Button,
+  SimpleGrid,
+  Icon,
+  VStack,
 } from '@chakra-ui/react';
+import { CheckIcon } from '@chakra-ui/icons';
 
 const Tags = props => {
+  const tagsBg = useColorModeValue('green.400', 'green.800');
   return (
     <HStack spacing={2} marginTop={props.marginTop}>
       {props.tags.map(tag => {
         return (
-          <Tag size={'md'} variant="solid" colorScheme="gray" key={tag}>
+          <Tag size={'md'} variant="solid" bg={tagsBg} key={tag}>
             {tag}
           </Tag>
         );
@@ -27,7 +32,65 @@ const Tags = props => {
   );
 };
 
+const supportedBy = [
+  {
+    name: 'HEKORS Community',
+    link: 'https://hekors.vercel.app/',
+    logo: 'https://hekors.vercel.app/hekors-logo.svg',
+  },
+];
+
+// Replace test data with your own
+const features = [
+  {
+    id: 1,
+    title: 'Exercise regularly',
+    text: 'Exercise has been shown to improve mood, reduce stress and anxiety, and improve overall mental well-being.',
+  },
+  {
+    id: 2,
+    title: 'Eat a healthy diet',
+    text: ' A balanced diet that includes a variety of fruits, vegetables, whole grains, and lean proteins can help improve mental health.',
+  },
+  {
+    id: 3,
+    title: 'Get enough sleep',
+    text: 'Adequate sleep is essential for good mental health. Lack of sleep can lead to irritability, difficulty concentrating and increased risk of depression and anxiety.',
+  },
+  {
+    id: 4,
+    title: 'Practice mindfulness',
+    text: 'Mindfulness is a mental state achieved by focusing one’s awareness on the present moment, while calmly acknowledging and accepting one’s feelings, thoughts, and bodily sensations.',
+  },
+  {
+    id: 5,
+    title: 'Avoid drugs and alcohol',
+    text: 'Drugs and alcohol can have a negative impact on mental health. They can cause or worsen depression and anxiety, and lead to substance abuse disorders.',
+  },
+  {
+    id: 6,
+    title: 'Manage stress',
+    text: 'Learning stress management techniques, such as deep breathing, meditation, and progressive muscle relaxation, can help reduce stress and improve mental well-being.',
+  },
+  {
+    id: 7,
+    title: 'Seek professional help',
+    text: 'If you’re experiencing symptoms of mental illness, it’s important to seek professional help. A mental health professional can help you manage your symptoms and develop a treatment plan.',
+  },
+  {
+    id: 8,
+    title: 'Connect with others',
+    text: 'Social support is an important part of mental health. Spending time with friends and family can help you feel less isolated and improve your mood.',
+  },
+  {
+    id: 9,
+    title: 'Maintain a positive attitude',
+    text: 'Having a positive outlook can help you cope with stress and improve your overall mental health and well-being.',
+  },
+];
+
 const ArticleList = () => {
+  const cardBg = useColorModeValue('white', 'gray.700');
   return (
     <Container maxW={'7xl'} my={20}>
       <Box
@@ -51,7 +114,7 @@ const ArticleList = () => {
               <Image
                 borderRadius="xl"
                 border={'4px solid'}
-                borderColor={useColorModeValue('gray.800', 'gray.100')}
+                borderColor={useColorModeValue('green.400', 'gray.100')}
                 src={
                   'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&q=80'
                 }
@@ -120,10 +183,90 @@ const ArticleList = () => {
         </Box>
       </Box>
 
-      <Heading as="h2" marginTop="32">
-        Latest articles
-      </Heading>
-      <Divider marginTop="5" />
+      {/* Supported By  */}
+      <Box>
+        <Heading
+          as="h2"
+          marginTop={{
+            base: '5',
+            sm: '10',
+          }}
+        >
+          Supported By 🙌🏻
+        </Heading>
+        <Text
+          as="p"
+          marginTop="2"
+          color={useColorModeValue('gray.700', 'gray.200')}
+          fontSize="lg"
+        >
+          We are supported by some amazing people and organizations, We are
+          thankful to them for their support.
+        </Text>
+        <Divider marginTop="5" />
+
+        <Box
+          marginY={{ base: '1', sm: '5' }}
+          display="flex"
+          flexDirection={{ base: 'column', sm: 'row' }}
+          justifyContent="flex-start"
+          gap={10}
+          py={10}
+        >
+          {supportedBy.map((item, index) => {
+            return (
+              <Image
+                src={item.logo}
+                alt="some good alt text"
+                h={{ base: '80px', sm: '80px' }}
+                objectFit="contain"
+                key={index}
+                filter={'grayscale(100%)'}
+                _hover={{
+                  transition: 'all 0.2s ease-in-out',
+                  filter: 'grayscale(0%)',
+                }}
+              />
+            );
+          })}
+        </Box>
+      </Box>
+      <Box>
+        <Heading
+          as="h2"
+          marginTop={{
+            base: '5',
+            sm: '10',
+          }}
+        >
+          Goals 🎯
+        </Heading>
+        <Text
+          as="p"
+          marginTop="2"
+          color={useColorModeValue('gray.700', 'gray.200')}
+          fontSize="lg"
+        >
+          We are working on some amazing goals, We are thankful to them for
+          their support.
+        </Text>
+        <Divider marginTop="5" />
+        <Container maxW={'6xl'} mt={10}>
+          <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={7}>
+            {features.map(feature => (
+              <HStack key={feature.id} align={'top'} p={2}>
+                <Box color={'green.400'} px={2}>
+                  <Icon as={CheckIcon} />
+                </Box>
+                <VStack align={'start'}>
+                  <Text fontWeight={600}>{feature.title}</Text>
+                  <Text color={'gray.400'}>{feature.text}</Text>
+                </VStack>
+              </HStack>
+            ))}
+          </SimpleGrid>
+        </Container>
+      </Box>
     </Container>
   );
 };
