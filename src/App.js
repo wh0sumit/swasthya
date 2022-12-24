@@ -1,18 +1,9 @@
 import React from 'react';
-import {
-  ChakraProvider,
-  Box,
-  Text,
-  Link,
-  VStack,
-  Code,
-  Grid,
-  theme,
-  Container,
-} from '@chakra-ui/react';
+import { ChakraProvider, theme, Container } from '@chakra-ui/react';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
+import './styles/Global.scss';
 
 function App() {
   return (

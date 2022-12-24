@@ -1,0 +1,8 @@
+.goals-card:hover {
+  transition: all 0.7s ease-in-out;
+  transform: scale(1);
+  cursor: pointer;
+  .goals-emoji {
+    transform: scale(1.1);
+  }
+}
