@@ -14,23 +14,11 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import * as RiIcons from 'react-icons/ri';
+import { NavLink } from 'react-router-dom';
+
+import NotFoundImage from '../assets/NotFoundImage.png';
 
 export default function NotFound() {
-  const size = '96px';
-  const color = 'green.400';
-
-  const pulseRing = keyframes`
-        0% {
-       transform: scale(0.33);
-     }
-     40%,
-     50% {
-       opacity: 0;
-     }
-     100% {
-       opacity: 0;
-     }
-        `;
   return (
     <React.Fragment>
       <Helmet>
@@ -68,18 +56,20 @@ export default function NotFound() {
                 exist or has been moved to a different location.
               </Text>
               <HStack spacing={2} marginTop="5">
-                <Button
-                  bg={useColorModeValue('green.600', 'green.200')}
-                  color={useColorModeValue('white', 'gray.800')}
-                  _hover={{
-                    bg: useColorModeValue('green.700', 'green.300'),
-                  }}
-                  size="md"
-                  variant={'solid'}
-                  leftIcon={<RiIcons.RiArrowLeftLine />}
-                >
-                  Return Home
-                </Button>
+                <NavLink to="/">
+                  <Button
+                    bg={useColorModeValue('green.600', 'green.200')}
+                    color={useColorModeValue('white', 'gray.800')}
+                    _hover={{
+                      bg: useColorModeValue('green.700', 'green.300'),
+                    }}
+                    size="md"
+                    variant={'solid'}
+                    leftIcon={<RiIcons.RiArrowLeftLine />}
+                  >
+                    Return Home
+                  </Button>
+                </NavLink>
               </HStack>
               <Text
                 as="p"
@@ -103,9 +93,7 @@ export default function NotFound() {
               <Box width={{ base: '100%' }} zIndex="2" margin={'10'}>
                 <Link textDecoration="none" _hover={{ textDecoration: 'none' }}>
                   <Image
-                    src={
-                      'https://o.remove.bg/downloads/47da76a4-df0d-4a9a-840a-5b67d2c64a80/astronaut-yoga-with-coffee-cartoon-vector-icon-illustration-science-drink-icon-concept-isolated-premium-vector-flat-cartoon-style_138676-3400-removebg-preview.png'
-                    }
+                    src={NotFoundImage}
                     alt="some good alt text"
                     objectFit="contain"
                     minW="100%"
@@ -116,8 +104,8 @@ export default function NotFound() {
               <Box
                 zIndex="1"
                 width="100%"
-                position="absolute"
                 height="100%"
+                position="absolute"
                 rounded={'full'}
               >
                 <Box

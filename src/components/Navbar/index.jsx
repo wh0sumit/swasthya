@@ -169,7 +169,8 @@ const DesktopNav = () => {
 const DesktopSubNav = ({ label, href, subLabel }) => {
   return (
     <Link
-      href={href}
+      as={NavLink}
+      to={href}
       role={'group'}
       display={'block'}
       p={2}
@@ -284,8 +285,8 @@ const NAV_ITEMS = [
     href: '/about',
   },
   {
-    label: 'Team',
-    href: '/team',
+    label: 'Open-Source',
+    href: '/open-source',
   },
   {
     label: 'Mission',

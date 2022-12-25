@@ -12,11 +12,14 @@ import {
   Container,
   Button,
   SimpleGrid,
-  VStack,
 } from '@chakra-ui/react';
+
+import GoalsData from '../data/GoalsData';
 
 import Testimonials from '../components/Testimonials';
 import { Helmet } from 'react-helmet';
+import GoalsCard from '../components/Cards/GoalsCard';
+import { NavLink } from 'react-router-dom';
 
 const Tags = props => {
   const tagsBg = useColorModeValue('green.400', 'green.800');
@@ -41,64 +44,6 @@ const supportedBy = [
   },
 ];
 
-const goals = [
-  {
-    id: 1,
-    emoji: '🏃‍♂️',
-    title: 'Exercise regularly',
-    text: 'Exercise has been shown to improve mood, reduce stress and anxiety, and improve overall mental well-being.',
-  },
-  {
-    id: 2,
-    emoji: '🥦',
-    title: 'Eat a healthy diet',
-    text: ' A balanced diet that includes a variety of fruits, vegetables, whole grains, and lean proteins can help improve mental health.',
-  },
-  {
-    id: 3,
-    emoji: '💤',
-
-    title: 'Get enough sleep',
-    text: 'Adequate sleep is essential for good mental health. Lack of sleep can lead to irritability, difficulty concentrating and increased risk of depression and anxiety.',
-  },
-  {
-    id: 4,
-    emoji: '🧘‍♂️',
-    title: 'Practice mindfulness',
-    text: 'Mindfulness is a mental state achieved by focusing one’s awareness on the present moment, while calmly acknowledging and accepting one’s feelings, thoughts, and bodily sensations.',
-  },
-  {
-    id: 5,
-    emoji: '🚫',
-    title: 'Avoid drugs and alcohol',
-    text: 'Drugs and alcohol can have a negative impact on mental health. They can cause or worsen depression and anxiety, and lead to substance abuse disorders.',
-  },
-  {
-    id: 6,
-    emoji: '🧘‍♂️',
-    title: 'Manage stress',
-    text: 'Learning stress management techniques, such as deep breathing, meditation, and progressive muscle relaxation, can help reduce stress and improve mental well-being.',
-  },
-  {
-    id: 7,
-    emoji: '👨‍⚕️',
-    title: 'Seek professional help',
-    text: 'If you’re experiencing symptoms of mental illness, it’s important to seek professional help. A mental health professional can help you manage your symptoms and develop a treatment plan.',
-  },
-  {
-    id: 8,
-    emoji: '👨‍👩‍👧‍👦',
-    title: 'Connect with others',
-    text: 'Social support is an important part of mental health. Spending time with friends and family can help you feel less isolated and improve your mood.',
-  },
-  {
-    id: 9,
-    emoji: '👍',
-    title: 'Maintain a positive attitude',
-    text: 'Having a positive outlook can help you cope with stress and improve your overall mental health and well-being.',
-  },
-];
-
 export default function Home() {
   return (
     <React.Fragment>
@@ -112,6 +57,7 @@ export default function Home() {
           marginY={{ base: '1', sm: '5' }}
           display="flex"
           flexDirection={{ base: 'column', sm: 'row' }}
+          flexWrap="wrap"
           justifyContent="space-between"
           py={10}
         >
@@ -124,7 +70,16 @@ export default function Home() {
             position="relative"
             alignItems="center"
           >
-            <Box width={{ base: '100%' }} zIndex="2" margin={'10'}>
+            <Box
+              width={{ base: '100%' }}
+              zIndex="2"
+              margin={{
+                base: '0',
+
+                md: '10',
+                lg: '30',
+              }}
+            >
               <Link textDecoration="none" _hover={{ textDecoration: 'none' }}>
                 <Image
                   borderRadius="3xl"
@@ -134,7 +89,6 @@ export default function Home() {
                     'https://images.unsplash.com/photo-1524901548305-08eeddc35080?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
                   }
                   alt="some good alt text"
-                  objectFit="contain"
                 />
               </Link>
             </Box>
@@ -179,18 +133,19 @@ export default function Home() {
               reduce their mental health problems.
             </Text>
             <HStack spacing={2} marginTop="5">
-              <Button
-                bg={useColorModeValue('green.600', 'green.200')}
-                color={useColorModeValue('white', 'gray.800')}
-                _hover={{
-                  bg: useColorModeValue('green.700', 'green.300'),
-                }}
-                size="md"
-                variant={'solid'}
-              >
-                Get Started 🌱
-              </Button>
-
+              <NavLink to="/login">
+                <Button
+                  bg={useColorModeValue('green.600', 'green.200')}
+                  color={useColorModeValue('white', 'gray.800')}
+                  _hover={{
+                    bg: useColorModeValue('green.700', 'green.300'),
+                  }}
+                  size="md"
+                  variant={'solid'}
+                >
+                  Get Started 🌱
+                </Button>
+              </NavLink>
               <Button size="md" variant={'outline'} colorScheme="green">
                 Share 🙌🏻
               </Button>
@@ -238,11 +193,6 @@ export default function Home() {
                   h={{ base: '55px' }}
                   objectFit="contain"
                   key={index}
-                  // filter={'grayscale(100%)'}
-                  // _hover={{
-                  //   transition: 'all 0.2s ease-in-out',
-                  //   filter: 'grayscale(0%)',
-                  // }}
                 />
               );
             })}
@@ -270,27 +220,16 @@ export default function Home() {
           <Divider marginTop="5" />
           <Container maxW={'6xl'} mt={10}>
             <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={7}>
-              {goals.map(items => (
-                <HStack
-                  key={items.id}
-                  align={'top'}
-                  p={2}
-                  className="goals-card"
-                >
-                  <Box
-                    color={'green.400'}
-                    px={2}
-                    fontSize={'3xl'}
-                    className="goals-emoji"
-                  >
-                    {items.emoji}
-                  </Box>
-                  <VStack align={'start'}>
-                    <Text fontWeight={600}>{items.title}</Text>
-                    <Text color={'gray.400'}>{items.text}</Text>
-                  </VStack>
-                </HStack>
-              ))}
+              {GoalsData.map((item, index) => {
+                return (
+                  <GoalsCard
+                    key={index}
+                    title={item.title}
+                    desc={item.desc}
+                    emoji={item.emoji}
+                  />
+                );
+              })}
             </SimpleGrid>
           </Container>
         </Box>
