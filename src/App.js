@@ -9,6 +9,9 @@ import './styles/Global.scss';
 import Footer from './components/Footer';
 import Social from './pages/Dashboard/Social';
 import TaskData from './pages/Dashboard/Tasks/TaskData';
+import About from './pages/About';
+import Team from './pages/Team';
+import NotFound from './pages/NotFound';
 
 function App() {
   const ReactNodes = [
@@ -36,8 +39,11 @@ function App() {
               element={<Dashboard>{node.component}</Dashboard>}
             />
           ))}
+          <Route path="/about" element={<About />} />
+          <Route path="/team" element={<Team />} />
 
           <Route path="/login" element={<Login />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         {window.location.pathname === '/dashboard' ||
         window.location.pathname === '/dashboard/social' ? null : (

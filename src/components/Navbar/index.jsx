@@ -124,21 +124,23 @@ const DesktopNav = () => {
         <Box key={navItem.label}>
           <Popover trigger={'hover'} placement={'bottom-start'}>
             <PopoverTrigger>
-              <Link
-                p={2}
-                href={navItem.href ?? '#'}
-                fontSize={'sm'}
-                fontWeight={500}
-                color={linkColor}
-                _hover={{
-                  textDecoration: 'none',
-                  color: linkHoverColor,
-                  borderBottom: '2px solid',
-                  borderColor: 'green.400',
-                }}
-              >
-                {navItem.label}
-              </Link>
+              <NavLink to={navItem.href}>
+                <Link
+                  p={2}
+                  href={navItem.href ?? '#'}
+                  fontSize={'sm'}
+                  fontWeight={500}
+                  color={linkColor}
+                  _hover={{
+                    textDecoration: 'none',
+                    color: linkHoverColor,
+                    borderBottom: '2px solid',
+                    borderColor: 'green.400',
+                  }}
+                >
+                  {navItem.label}
+                </Link>
+              </NavLink>
             </PopoverTrigger>
 
             {navItem.children && (
@@ -278,25 +280,25 @@ const MobileNavItem = ({ label, children, href }) => {
 
 const NAV_ITEMS = [
   {
-    label: 'Learn Design',
-    href: '#',
+    label: 'About ',
+    href: '/about',
   },
   {
-    label: 'Hire Designers',
-    href: '#',
+    label: 'Team',
+    href: '/team',
   },
   {
-    label: 'Inspiration',
+    label: 'Mission',
     children: [
       {
-        label: 'Explore Design Work',
-        subLabel: 'Trending Design to inspire you',
-        href: '#',
+        label: 'Mental Health',
+        subLabel: 'We help you with your mental health problems',
+        href: '/mental-health',
       },
       {
-        label: 'New & Noteworthy',
-        subLabel: 'Up-and-coming Designers',
-        href: '#',
+        label: 'Get a new Job/Internship',
+        subLabel: 'We help you get a job or internship',
+        href: '/get-job',
       },
     ],
   },
