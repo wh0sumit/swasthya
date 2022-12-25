@@ -8,9 +8,9 @@ import {
   VisuallyHidden,
   chakra,
   useColorModeValue,
-  Heading,
 } from '@chakra-ui/react';
 import { FaTwitter, FaYoutube, FaInstagram } from 'react-icons/fa';
+import { NavLink } from 'react-router-dom';
 
 const ListHeader = ({ children }) => {
   return (
@@ -58,9 +58,13 @@ export default function Footer() {
       <Container as={Stack} maxW={'6xl'} p={10}>
         <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={10}>
           <Stack align={'flex-start'}>
-            <ListHeader>Company</ListHeader>
-            <Link href={'#'}>About Us</Link>
-            <Link href={'#'}>Blog</Link>
+            <ListHeader>General</ListHeader>
+            <Link to={'/about'} as={NavLink}>
+              About Us
+            </Link>
+            <Link to={'/contact'} as={NavLink}>
+              Contact Us
+            </Link>
           </Stack>
 
           <Stack align={'flex-start'}>
@@ -76,22 +80,19 @@ export default function Footer() {
           </Stack>
 
           <Stack align={'flex-start'}>
-            <Heading
-              marginTop="2"
-              fontFamily={'heading'}
-              bgClip="text"
-              bgGradient="linear(to-r, green.500, green.300, green.500)"
-              fontWeight="bold"
-            >
-              Swasthya
-            </Heading>
-            <Text
-              as="p"
-              color={useColorModeValue('gray.500', 'gray.400')}
-              fontSize="md"
-              mt={0}
-            >
-              Be Healthy, Be Happy !
+            <NavLink to="/">
+              <Text
+                as={'h5'}
+                bgClip="text"
+                bgGradient="linear(to-r, green.500, green.300, green.500)"
+                fontWeight="bold"
+              >
+                Swasthya
+              </Text>
+            </NavLink>
+            <Text fontSize={'sm'}>
+              A platform for developers, designers, and techies to check and
+              reduce their mental health problems.
             </Text>
           </Stack>
         </SimpleGrid>

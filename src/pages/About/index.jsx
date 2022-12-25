@@ -45,7 +45,7 @@ export default function About() {
                 as="p"
                 marginTop="2"
                 color={useColorModeValue('gray.700', 'gray.200')}
-                fontSize="lg"
+                fontSize="xl"
               >
                 Swasthya is an ally for those in the tech industry who may be
                 struggling with the impact of job layoffs on their mental
