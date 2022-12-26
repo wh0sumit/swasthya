@@ -1,68 +1,37 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Swasthya: Your mental health ally in the tech world !
 
-## Available Scripts
+Swasthya is a mental health app that helps you track your mental health and provides you with resources to help you cope with your mental health issues in this layoff time and beyond. 
 
-In the project directory, you can run:
+## 🛠 Technologies used in Swasthya 
 
-### `npm start`
+- [React](https://reactjs.org/)
+- [SCSS](https://sass-lang.com/)
+- [Supabase](https://supabase.io/)
+- [Chakra UI](https://chakra-ui.com/)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## 🤝🏻 Support this project
 
-### `npm test`
+Swasthya is an open source project and we would be happy to have you as part of our community! 
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+So, It'll be not possible without your support, we need your help to
+make Swasthya a success. If you are a business owner or
+individual, and Swasthya makes your life easier and if you are
+interested in sponsoring us, please contact us at sumikumar1608@gmail.com .
 
-### `npm run build`
+or you can buy us a [coffee ☕️](https://www.github.com/sponsors/wh0sumit) to keep us awake and working on this project. 
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## 🙋🏻‍♂️ Contributing to Swasthya
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+It's wonderful to see developers, designers, and product enthusiasts about contributing to Swasthya. 
 
-### `npm run eject`
+There are a few ways you can contribute to Swasthya, which you can find in our [Contribution Guide](CONTRIBUTING.md). 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 💬 Contact Us
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+If you have any queries for Swasthya reach us out on our email ([sumikumar1608@gmail.com](mailto:sumikumar1608@gmail.com)) for further communication.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+![Twitter Follow](https://img.shields.io/twitter/follow/wh0sumit?style=social)
